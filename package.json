@@ -14,6 +14,7 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.8.3",
+    "element-ui": "^2.15.6",
     "serialport": "^10.4.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
