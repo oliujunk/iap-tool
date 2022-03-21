@@ -210,18 +210,7 @@ export default {
       this.downloading = false;
       this.percentage = 0;
       this.progressStatus = 'exception';
-      const send = Buffer.alloc(4);
-      send[0] = 0x01;
-      send[1] = 0xe0;
-      const checkSum = modbusCrc(send, 0, 2);
-      send[2] = checkSum & 0xff;
-      send[3] = (checkSum >> 8) & 0xff;
-      this.textarea += `发送(HEX): ${send.toString('hex').toUpperCase()}\r\n`;
-      if (this.linkType === 1) {
-        this.port.write(send);
-      } else if (this.linkType === 2) {
-        this.socket.write(send);
-      }
+      this.serialPort.write();
     },
 
   },
